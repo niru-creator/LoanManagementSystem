@@ -1,0 +1,31 @@
+<h1 id="tableLabel">Vocabulary List</h1>
+
+<!-- <p *ngIf="vocabulary.length==0"><em>Loading...</em></p> -->
+<div>
+  <table class='table table-striped' aria-labelledby="tableLabel">
+    <thead>
+      <tr>
+        <th>S.No</th>
+        <th>Word</th>
+        <th>Meaning</th>
+        <th>Synonyms</th>
+        <th>Antonyms</th>
+        <th>Nepali Meaning</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let vocabulary of vocab;let i= index">
+        <td>{{i+1}}</td>
+        <td>{{vocabulary.Word}}</td>
+        <td>{{vocabulary.Meaning}}</td>
+        <td>{{vocabulary.Synonyms}}</td>
+        <td>{{vocabulary.Antonyms}}</td>
+        <td>{{vocabulary.MeaningInNepali}}</td>
+        <td>
+          <button class="btn-primary" style=" margin-left: 4px; margin-right: 3px;" onclick="Edit(Vocabulary,i)">Edit</button>
+          <button class="btn-danger" onclick="Delete(Vocabulary,i)">Delete</button>
+      </tr>
+    </tbody>
+  </table>
+</div>
