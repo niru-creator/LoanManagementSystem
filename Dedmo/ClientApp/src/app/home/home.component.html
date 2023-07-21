@@ -1,27 +1,16 @@
-<div class="Container">
-  <form [formGroup]="Vocabulary.VocabularyValidator">
-    <div>
-      <label>Enter A Word:</label><br>
-      <input type="text" name="Word" id="word" [(ngModel)]="Vocabulary.Word" placeholder="Enter Word" formControlName="Word">
-      <span style="color:red" *ngIf="Vocabulary.IsDirty('Word')" [hidden]="Vocabulary.IsValidCheck('Word','required')"> Word is required</span>
-    </div><br>
-    <div>
-      <label>Enter Meaning:</label><br>
-      <input type="text" name="Meaning" [(ngModel)]="Vocabulary.Meaning" id="Meaning" placeholder="Enter Meaning" formControlName="Meaning">
-      <span style="color:red" *ngIf="Vocabulary.IsDirty('Meaning')" [hidden]="Vocabulary.IsValidCheck('Meaning','required')"> Meaning is required</span>
-    </div><br>
-    <div>
-      <label>Enter Synonyms:</label><br>
-      <input type="text" name="Synonyms" [(ngModel)]="Vocabulary.Synonyms" [ngModelOptions]="{standalone: true}" id="Synonyms" placeholder="Enter Synonyms">
-    </div><br>
-    <div>
-      <label>Enter Antonyms:</label><br>
-      <input type="text" name="Antonyms" [(ngModel)]="Vocabulary.Antonyms" [ngModelOptions]="{standalone: true}" id="Antonyms" placeholder="Enter Antonyms">
-    </div><br>
-    <div>
-      <label>Enter Meaning In Nepali:</label><br>
-      <input type="text" name="MeaningInNepali" [(ngModel)]="Vocabulary.MeaningInNepali" [ngModelOptions]="{standalone: true}" id="nepali" placeholder="Enter Nepali Meaning">
-    </div><br>
-    <input type="button" class="btn btn-primary" value="Submit" (click)="PostVocabulary()">
-  </form>
+<div *ngIf="loanService.RoleName == client_enum">
+  <div class="Container">
+    <br>
+    <h2>Welcome &nbsp;{{loanService.UserName}}</h2>
+    <br>
+    <app-loan-application [userRole]="loanService.RoleName"></app-loan-application>
+  </div>
+</div>
+<div *ngIf="loanService.RoleName == admin_enum">
+  <div class="Container">
+    <br>
+    <h2>Welcome &nbsp;{{loanService.UserName}}</h2>
+    <br>
+    <app-loan-applied-list [userRole]="loanService.RoleName"></app-loan-applied-list>
+  </div>
 </div>

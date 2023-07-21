@@ -1,27 +1,29 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
-
 import { AppComponent } from './app.component';
-import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { HomeComponent } from './home/home.component';
-import { CounterComponent } from './counter/counter.component';
-import { VocabularyListComponent } from './VocabularyList/Vocabulary-list.component';
-import { VocabularyBLService } from './Services/vocab.bl.service';
-import { VocabularyDLService } from './Services/vocab.dl.service';
+import { LoanAppliedListComponent } from './LoanAppliedList/Loan-Applied-list.component';
+import { LoanBLService } from './Services/loan.bl.service';
+import { LoanDlService } from './Services/loan.dl.service';
+import { loginComponent } from './login/login.component';
+import { LoanService } from './Services/loan-service';
+import { LoanApplicationFormComponent } from './LoanApplicationForm/loan-application-form.component';
 
 @NgModule({
   providers: [
-    VocabularyBLService,
-    VocabularyDLService],
+    LoanBLService,
+    LoanDlService,
+    LoanService
+  ],
   declarations: [
     AppComponent,
-    NavMenuComponent,
     HomeComponent,
-    CounterComponent,
-    VocabularyListComponent
+    LoanAppliedListComponent,
+    loginComponent,
+    LoanApplicationFormComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -29,9 +31,8 @@ import { VocabularyDLService } from './Services/vocab.dl.service';
     FormsModule,
     ReactiveFormsModule,
     RouterModule.forRoot([
-      { path: '', component: HomeComponent, pathMatch: 'full' },
-      { path: 'counter', component: CounterComponent },
-      { path: 'VocabularyList', component: VocabularyListComponent },
+      { path: '', component: loginComponent, pathMatch: 'full' },
+      { path: 'Home', component: HomeComponent },
     ])
   ],
   bootstrap: [AppComponent]

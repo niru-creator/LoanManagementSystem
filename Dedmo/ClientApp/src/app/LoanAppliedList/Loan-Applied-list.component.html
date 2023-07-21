@@ -1,0 +1,33 @@
+<h1 id="tableLabel">Loan List</h1>
+<div>
+  <table class='table' aria-labelledby="tableLabel">
+    <thead>
+      <tr>
+        <th>S.No.</th>
+        <th>Customer Name</th>
+        <th>Customer Address</th>
+        <th>Email</th>
+        <th>Loan Amount</th>
+        <th>Loan Period</th>
+        <th>Application Date</th>
+        <th>Loan Status</th>
+        <th *ngIf="userRole == admin_enum">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let loan of loansApplied;let i= index">
+        <td>{{i+1}}</td>
+        <td>{{loan.CustomerName}}</td>
+        <td>{{loan.Address}}</td>
+        <td>{{loan.Email}}</td>
+        <td>{{loan.LoanAmount}}</td>
+        <td>{{loan.LoanPeriod}}</td>
+        <td>{{loan.ApplicationDate | date:'yyyy-MM-dd'}}</td>
+        <td>{{loan.Status}}</td>
+        <td *ngIf="userRole == admin_enum">
+          <button class="btn-primary" (click)="Approve(loan)" [disabled]="loan.IsApprovedDisabled">Approve</button><br>
+          <button class="btn-danger" (click)="Reject(loan)" [disabled]="loan.IsRejectedDisabled">Reject</button>
+      </tr>
+    </tbody>
+  </table>
+</div>

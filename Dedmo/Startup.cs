@@ -1,4 +1,5 @@
-using GRE.DBContext;
+using LoanManagementSystem.DBContext;
+using LoanManagementSystem.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -22,6 +23,7 @@ namespace Dedmo
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddSignalR();
             services.AddControllersWithViews();
             services.AddControllers().AddJsonOptions(options => options.JsonSerializerOptions.PropertyNamingPolicy = null);
             // In production, the Angular files will be served from this directory
@@ -29,7 +31,7 @@ namespace Dedmo
             {
                 configuration.RootPath = "ClientApp/dist";
             });
-            services.AddDbContext<VocabularyDbContext>(options =>
+            services.AddDbContext<LoanDbContext>(options =>
             options.UseSqlServer(Configuration.GetConnectionString("ConnectionString"))
            );
         }
