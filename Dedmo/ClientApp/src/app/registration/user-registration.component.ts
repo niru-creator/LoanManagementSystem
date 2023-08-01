@@ -16,14 +16,24 @@ export class UserRegistrationComponent {
     ) { }
     SubmitRegistration() {
         if (!this.isInValid) {
-            this.loanBLService.postUserRegistration(this.registration).subscribe(res => {
-                if (res.Status === "OK") {
-                    alert("Successfully Registered");
-                    this.registration = new User_Credential();
-                    this.SecondPassword = null;
-                }
-            });
+            for (var i in this.registration.userValidator.controls) {
+                this.registration.userValidator.controls[i].markAsDirty();
+                this.registration.userValidator.controls[i].updateValueAndValidity();
+            }
+            if (this.registration.IsValidCheck(undefined, undefined)) {
+                this.loanBLService.postUserRegistration(this.registration).subscribe(res => {
+                    if (res.Status === "OK") {
+                        alert("Successfully Registered");
+                        this.registration = new User_Credential();
+                        this.SecondPassword = null;
+                    }
+                    else
+                        alert("Sorry! Registration Failed,Please Try Again!")
+                });
+            }
         }
+        else
+            alert("Both Password Should Match")
     }
     OnEnterSecondPassword() {
         if (this.SecondPassword !== this.registration.Password)

@@ -200,8 +200,6 @@ namespace Dedmo.Controllers
             loan.EndDate = loan.StartDate.AddYears(loanApplication.LoanPeriod); //As LoanPeriod is in years so EndDate of loan is calcaulated by Adding Current date to the loanPeriod
             loan.LoanApplicationId = loanApplication.LoanApplicationId;
             loan.InterestRate = (loanApplication.LoanAmount * loanApplication.LoanPeriod * 7) / 100;
-            //int maxmLoanApplicationId = loanDbContext.appliedLoan.DefaultIfEmpty().Max(p => p == null ? 0 : p.LoanApplicationId); //Since LoanId is not send from frontend as this is a internal process So I generate a number to insert into loanId(primary key) of loan table 
-            // loan.LoanId = maxmLoanApplicationId + 1;
             loan.Amount = loanApplication.LoanAmount;
             loan.BalanceAmount = loanApplication.LoanAmount;
             loan.CreatedBy = UserId;
