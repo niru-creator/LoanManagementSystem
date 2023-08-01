@@ -1,4 +1,7 @@
 <h1 id="tableLabel">Loan List</h1>
+<br>
+<button  class="btn-danger"  *ngIf="loanService.RoleName == client_enum" (click)="GoBack()">Go Back To Home</button>
+<br>
 <div>
   <table class='table' aria-labelledby="tableLabel">
     <thead>
@@ -24,9 +27,9 @@
         <td>{{loan.LoanPeriod}}</td>
         <td>{{loan.ApplicationDate | date:'yyyy-MM-dd'}}</td>
         <td>{{loan.Status}}</td>
-        <td *ngIf="userRole == admin_enum">
-          <button class="btn-primary" (click)="Approve(loan)" [disabled]="loan.IsApprovedDisabled">Approve</button><br>
-          <button class="btn-danger" (click)="Reject(loan)" [disabled]="loan.IsRejectedDisabled">Reject</button>
+        <td *ngIf="userRole == admin_enum" style="width: 250px;">
+          <button class="btn-primary" (click)="Approve(loan)" [disabled]="loan.IsApprovedDisabled">Approve</button>&nbsp;
+          <button class="btn-danger" (click)="Reject(loan)">Reject</button>
       </tr>
     </tbody>
   </table>

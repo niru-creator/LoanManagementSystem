@@ -2,7 +2,7 @@
     <div class="col-md-12">
         <div class="row">
             <div class="col-md-6">
-                <h3>Apply For Loan</h3>
+                <h3><b>Apply For Loan</b></h3>
             </div>
             <div class="col-md-6">
                 <button type="submit" class="btn btn-primary" (click)="OnClickAppliedLoanDetail()">Applied Loan Details</button>
@@ -13,33 +13,33 @@
     <!-- Reactive Form -->
     <form [formGroup]="loanApplication.LoanValidator">
         <div class="form-group">
-            <label for="exampleInputName">Name:<b class="color-red">*</b></label>
+            <label for="exampleInputName">Name:<b style="color: red;">*</b></label>
             <input type="text" class="form-control" id="customer_name" aria-describedby="customer" placeholder="Name" [(ngModel)]="loanApplication.CustomerName" formControlName="CustomerName">
             <span style="color:red" *ngIf="loanApplication.IsDirty('CustomerName')" [hidden]="loanApplication.IsValidCheck('CustomerName','required')"> Name is required</span>
         </div>
         <div class="form-group">
-            <label for="exampleInputEmail">Email:<b class="color-red">*</b></label>
+            <label for="exampleInputEmail">Email:<b style="color: red;">*</b></label>
             <input type="email" class="form-control" id="exampleInputEmail" placeholder="Email" [(ngModel)]="loanApplication.Email" formControlName="Email">
             <span style="color:red" *ngIf="loanApplication.IsDirty('Email')" [hidden]="loanApplication.IsValidCheck('Email','required')"> Email is required</span>
+            <span style="color:red" *ngIf="loanApplication.IsDirty('Email')" [hidden]="loanApplication.IsValidCheck('Email','pattern')">Email is not proper</span>
         </div>
         <div class="form-group">
-            <label for="exampleInputContact">Contact:<b class="color-red">*</b></label>
-            <input type="text" class="form-control" id="exampleInputContact" placeholder="Contact" [(ngModel)]="loanApplication.Contact" formControlName="Contact">
+            <label for="exampleInputContact">Contact:<b style="color: red;">*</b></label>
+            <input type="text" class="form-control" id="exampleInputContact" placeholder="Contact" maxLength="10" [(ngModel)]="loanApplication.Contact" formControlName="Contact">
             <span style="color:red" *ngIf="loanApplication.IsDirty('Contact')" [hidden]="loanApplication.IsValidCheck('Contact','required')"> Contact is required</span>
         </div>
         <div class="form-group">
-            <label for="exampleInputLoanAmount">Loan Amount:<b class="color-red">*</b></label>
+            <label for="exampleInputLoanAmount">Loan Amount:<b style="color: red;">*</b></label>
             <input type="number" class="form-control" id="exampleInputLoanAmount" placeholder="Loan Amount" [(ngModel)]="loanApplication.LoanAmount" formControlName="LoanAmount">
             <span style="color:red" *ngIf="loanApplication.IsDirty('LoanAmount')" [hidden]="loanApplication.IsValidCheck('LoanAmount','required')"> Loan Amount is required</span>
-            <span class="color-red font-sm" *ngIf="loanApplication.IsDirty('LoanAmount')" [hidden]="loanApplication.IsValidCheck('LoanAmount','positivenum')"> Loan Amount Should Not Be Negative</span>
+            <span style="color:red" *ngIf="loanApplication.IsDirty('LoanAmount')" [hidden]="loanApplication.IsValidCheck('LoanAmount','positivenum')"> Loan Amount Should Not Be Negative</span>
         </div>
         <div class="form-group">
-            <label for="exampleInputLoanPeriod">Loan Period (in Years):<b class="color-red">*</b></label>
+            <label for="exampleInputLoanPeriod">Loan Period (in Years):<b style="color: red;">*</b></label>
             <input type="number" class="form-control" id="exampleInputLoanPeriod" placeholder="Loan Period" [(ngModel)]="loanApplication.LoanPeriod" formControlName="LoanPeriod">
             <span style="color:red" *ngIf="loanApplication.IsDirty('LoanPeriod')" [hidden]="loanApplication.IsValidCheck('LoanPeriod','required')"> Loan Period is required</span>
-            <span class="color-red font-sm" *ngIf="loanApplication.IsDirty('LoanPeriod')" [hidden]="loanApplication.IsValidCheck('LoanPeriod','positivenum')"> Loan Period Should Not Be Negative</span>
+            <span style="color:red" *ngIf="loanApplication.IsDirty('LoanPeriod')" [hidden]="loanApplication.IsValidCheck('LoanPeriod','positivenum')"> Loan Period Should Not Be Negative</span>
         </div>
         <button type="submit" class="btn btn-primary" (click)="SubmitApplicationForm()">Submit</button>
     </form>
 </div>
-<app-loan-applied-list *ngIf="showAppliedLoansStatus"></app-loan-applied-list>

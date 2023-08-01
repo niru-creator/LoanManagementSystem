@@ -4,6 +4,7 @@ import { LoanService } from '../Services/loan-service';
 import { Role } from '../Model/Role.model';
 import { ENUM_Role } from '../ENUM/shared_enum';
 import { User_Credential } from '../Model/User.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -14,36 +15,17 @@ export class HomeComponent {
   admin_enum: string = ENUM_Role.Admin;
   user: User_Credential = new User_Credential();
   role: Role = new Role();
-  constructor(public loanBlService: LoanBLService, public loanService: LoanService) {
-
+  constructor(public loanBlService: LoanBLService, public loanService: LoanService, public router: Router) {
   }
   ngOnInit() {
     this.user.UserName = this.loanService.UserName;
     this.role.RoleName = this.loanService.RoleName;
   }
-  ngOnDestroy() {
+  logOut() {
+    this.router.navigate(["/"]);
     this.loanService.RoleName = null;
     this.loanService.UserName = null;
   }
-  // PostLoan() {
-  //   for (var i in this.loanData.LoanValidator.controls) {
-  //     this.loanData.LoanValidator.controls[i].markAsDirty();
-  //     this.loanData.LoanValidator.controls[i].updateValueAndValidity();
-  //   }
-  //   if (this.loanData.IsValidCheck(undefined, undefined)) {
-  //     this.loanBlService.PostLoan(this.loanData)
-  //       .subscribe(res => {
-  //         if (res.Status == 'OK') {
-  //           alert('Loan Applied Successfully');
-  //           this.loanData = new Loan();
-  //         }
-  //         else {
-  //           alert('Sorry! Loan Applied failed');
-  //         }
-  //       });
-  //   }
-  // }
-
 }
 
 

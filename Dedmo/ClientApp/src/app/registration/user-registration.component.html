@@ -1,0 +1,38 @@
+<br><br><br>
+<h1><b>User Registration</b></h1><br><br>
+<form [formGroup]="registration.userValidator">
+    <div>
+        <label for="exampleInputName">UserName:<b style="color: red;">*</b></label>&nbsp;
+        <input type="text" id="user-name" placeholder="UserName" [(ngModel)]="registration.UserName" formControlName="UserName">
+        <span style="color:red" *ngIf="registration.IsDirty('UserName')" [hidden]="registration.IsValidCheck('UserName','required')"> UserName is required</span>
+    </div><br>
+    <div>
+        <label for="exampleInputPassword">Password:<b style="color: red;">*</b></label>&nbsp;
+        <input type="password" id="password" placeholder="Password" [(ngModel)]="registration.Password" formControlName="Password">
+        <span style="color:red" *ngIf="registration.IsDirty('Password')" [hidden]="registration.IsValidCheck('Password','required')"> Password is required</span>
+    </div><br>
+    <div>
+        <label for="exampleInputConfirmPassword">Confirm Password:<b style="color: red;">*</b></label>&nbsp;
+        <input type="password" id="confirmpassword" placeholder="Password" [(ngModel)]="SecondPassword" required [ngModelOptions]="{standalone:true}" (ngModelChange)="OnEnterSecondPassword()">
+        <span style="color:red" *ngIf="isInValid"> Password Not Matched</span>
+    </div><br>
+    <div>
+        <label for="exampleInputLoanPeriod">Name:</label>&nbsp;
+        <input type="text" id="name" placeholder="Name" [(ngModel)]="registration.Name" [ngModelOptions]="{standalone:true}">
+    </div><br>
+    <div>
+        <label for="exampleInputContact">Email:<b style="color: red;">*</b></label>&nbsp;
+        <input type="email" id="email" placeholder="Email" [(ngModel)]="registration.Email" formControlName="Email" required>
+        <span style="color:red" *ngIf="registration.IsDirty('Email')" [hidden]="registration.IsValidCheck('Email','pattern')">Email is not proper</span>
+    </div><br>
+    <div>
+        <label for="exampleInputLoanAmount">Contact:</label>&nbsp;
+        <input type="text" id="contact" placeholder="Contact" maxLength="10" [(ngModel)]="registration.Contact" [ngModelOptions]="{standalone:true}">
+    </div><br>
+    <div>
+        <label for="exampleInputLoanPeriod">Address:</label>&nbsp;
+        <input type="text" id="address" placeholder="Address" [(ngModel)]="registration.Address" [ngModelOptions]="{standalone:true}">
+    </div><br>
+    <input type="button" class="btn btn-primary" value="Submit" (click)="SubmitRegistration()">
+    &nbsp;&nbsp;&nbsp;<a href="/"><b>Go Back To Login</b></a>
+</form>

@@ -3,6 +3,8 @@ import { LoanDlService } from "./loan.dl.service";
 import { map } from 'rxjs/operators';
 import * as _ from 'lodash';
 import { LoanApplication } from "../Model/LoanApplication.model";
+import { User } from "oidc-client";
+import { User_Credential } from "../Model/User.model";
 
 @Injectable()
 export class LoanBLService {
@@ -41,5 +43,22 @@ export class LoanBLService {
         return this.loanDlService.rejectApplication(UserId, LoanApplicationId).pipe(map((responseData) => {
             return responseData;
         }));
+    }
+    public getLoanApplicationByUserId(UserId: number) {
+        return this.loanDlService.getLoanApplicationByUserId(UserId).pipe(map((responseData) => {
+            return responseData;
+        }));
+    }
+    public postUserRegistration(user: User_Credential) {
+        var userDetail = _.omit(user, ['userValidator']);
+        return this.loanDlService.postUserRegistrationDetail(userDetail)
+            .pipe(
+                map(res => { return res }));
+    }
+    public verifyUserCredential(user: User_Credential) {
+        var userDetail = _.omit(user, ['userValidator']);
+        return this.loanDlService.verifyUserCredential(userDetail)
+            .pipe(
+                map(res => { return res }));
     }
 }

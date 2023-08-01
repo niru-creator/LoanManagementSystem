@@ -9,7 +9,7 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"container\">\r\n    <div class=\"col-md-12\">\r\n        <div class=\"row\">\r\n            <div class=\"col-md-6\">\r\n                <h3>Apply For Loan</h3>\r\n            </div>\r\n            <div class=\"col-md-6\">\r\n                <button type=\"submit\" class=\"btn btn-primary\" (click)=\"OnClickAppliedLoanDetail()\">Applied Loan Details</button>\r\n            </div>\r\n        </div>\r\n    </div>\r\n    <br>\r\n    <!-- Reactive Form -->\r\n    <form [formGroup]=\"loanApplication.LoanValidator\">\r\n        <div class=\"form-group\">\r\n            <label for=\"exampleInputName\">Name:<b class=\"color-red\">*</b></label>\r\n            <input type=\"text\" class=\"form-control\" id=\"customer_name\" aria-describedby=\"customer\" placeholder=\"Name\" [(ngModel)]=\"loanApplication.CustomerName\" formControlName=\"CustomerName\">\r\n            <span style=\"color:red\" *ngIf=\"loanApplication.IsDirty('CustomerName')\" [hidden]=\"loanApplication.IsValidCheck('CustomerName','required')\"> Name is required</span>\r\n        </div>\r\n        <div class=\"form-group\">\r\n            <label for=\"exampleInputEmail\">Email:<b class=\"color-red\">*</b></label>\r\n            <input type=\"email\" class=\"form-control\" id=\"exampleInputEmail\" placeholder=\"Email\" [(ngModel)]=\"loanApplication.Email\" formControlName=\"Email\">\r\n            <span style=\"color:red\" *ngIf=\"loanApplication.IsDirty('Email')\" [hidden]=\"loanApplication.IsValidCheck('Email','required')\"> Email is required</span>\r\n        </div>\r\n        <div class=\"form-group\">\r\n            <label for=\"exampleInputContact\">Contact:<b class=\"color-red\">*</b></label>\r\n            <input type=\"text\" class=\"form-control\" id=\"exampleInputContact\" placeholder=\"Contact\" [(ngModel)]=\"loanApplication.Contact\" formControlName=\"Contact\">\r\n            <span style=\"color:red\" *ngIf=\"loanApplication.IsDirty('Contact')\" [hidden]=\"loanApplication.IsValidCheck('Contact','required')\"> Contact is required</span>\r\n        </div>\r\n        <div class=\"form-group\">\r\n            <label for=\"exampleInputLoanAmount\">Loan Amount:<b class=\"color-red\">*</b></label>\r\n            <input type=\"number\" class=\"form-control\" id=\"exampleInputLoanAmount\" placeholder=\"Loan Amount\" [(ngModel)]=\"loanApplication.LoanAmount\" formControlName=\"LoanAmount\">\r\n            <span style=\"color:red\" *ngIf=\"loanApplication.IsDirty('LoanAmount')\" [hidden]=\"loanApplication.IsValidCheck('LoanAmount','required')\"> Loan Amount is required</span>\r\n            <span class=\"color-red font-sm\" *ngIf=\"loanApplication.IsDirty('LoanAmount')\" [hidden]=\"loanApplication.IsValidCheck('LoanAmount','positivenum')\"> Loan Amount Should Not Be Negative</span>\r\n        </div>\r\n        <div class=\"form-group\">\r\n            <label for=\"exampleInputLoanPeriod\">Loan Period (in Years):<b class=\"color-red\">*</b></label>\r\n            <input type=\"number\" class=\"form-control\" id=\"exampleInputLoanPeriod\" placeholder=\"Loan Period\" [(ngModel)]=\"loanApplication.LoanPeriod\" formControlName=\"LoanPeriod\">\r\n            <span style=\"color:red\" *ngIf=\"loanApplication.IsDirty('LoanPeriod')\" [hidden]=\"loanApplication.IsValidCheck('LoanPeriod','required')\"> Loan Period is required</span>\r\n            <span class=\"color-red font-sm\" *ngIf=\"loanApplication.IsDirty('LoanPeriod')\" [hidden]=\"loanApplication.IsValidCheck('LoanPeriod','positivenum')\"> Loan Period Should Not Be Negative</span>\r\n        </div>\r\n        <button type=\"submit\" class=\"btn btn-primary\" (click)=\"SubmitApplicationForm()\">Submit</button>\r\n    </form>\r\n</div>\r\n<app-loan-applied-list *ngIf=\"showAppliedLoansStatus\"></app-loan-applied-list>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"container\">\r\n    <div class=\"col-md-12\">\r\n        <div class=\"row\">\r\n            <div class=\"col-md-6\">\r\n                <h3><b>Apply For Loan</b></h3>\r\n            </div>\r\n            <div class=\"col-md-6\">\r\n                <button type=\"submit\" class=\"btn btn-primary\" (click)=\"OnClickAppliedLoanDetail()\">Applied Loan Details</button>\r\n            </div>\r\n        </div>\r\n    </div>\r\n    <br>\r\n    <!-- Reactive Form -->\r\n    <form [formGroup]=\"loanApplication.LoanValidator\">\r\n        <div class=\"form-group\">\r\n            <label for=\"exampleInputName\">Name:<b style=\"color: red;\">*</b></label>\r\n            <input type=\"text\" class=\"form-control\" id=\"customer_name\" aria-describedby=\"customer\" placeholder=\"Name\" [(ngModel)]=\"loanApplication.CustomerName\" formControlName=\"CustomerName\">\r\n            <span style=\"color:red\" *ngIf=\"loanApplication.IsDirty('CustomerName')\" [hidden]=\"loanApplication.IsValidCheck('CustomerName','required')\"> Name is required</span>\r\n        </div>\r\n        <div class=\"form-group\">\r\n            <label for=\"exampleInputEmail\">Email:<b style=\"color: red;\">*</b></label>\r\n            <input type=\"email\" class=\"form-control\" id=\"exampleInputEmail\" placeholder=\"Email\" [(ngModel)]=\"loanApplication.Email\" formControlName=\"Email\">\r\n            <span style=\"color:red\" *ngIf=\"loanApplication.IsDirty('Email')\" [hidden]=\"loanApplication.IsValidCheck('Email','required')\"> Email is required</span>\r\n            <span style=\"color:red\" *ngIf=\"loanApplication.IsDirty('Email')\" [hidden]=\"loanApplication.IsValidCheck('Email','pattern')\">Email is not proper</span>\r\n        </div>\r\n        <div class=\"form-group\">\r\n            <label for=\"exampleInputContact\">Contact:<b style=\"color: red;\">*</b></label>\r\n            <input type=\"text\" class=\"form-control\" id=\"exampleInputContact\" placeholder=\"Contact\" maxLength=\"10\" [(ngModel)]=\"loanApplication.Contact\" formControlName=\"Contact\">\r\n            <span style=\"color:red\" *ngIf=\"loanApplication.IsDirty('Contact')\" [hidden]=\"loanApplication.IsValidCheck('Contact','required')\"> Contact is required</span>\r\n        </div>\r\n        <div class=\"form-group\">\r\n            <label for=\"exampleInputLoanAmount\">Loan Amount:<b style=\"color: red;\">*</b></label>\r\n            <input type=\"number\" class=\"form-control\" id=\"exampleInputLoanAmount\" placeholder=\"Loan Amount\" [(ngModel)]=\"loanApplication.LoanAmount\" formControlName=\"LoanAmount\">\r\n            <span style=\"color:red\" *ngIf=\"loanApplication.IsDirty('LoanAmount')\" [hidden]=\"loanApplication.IsValidCheck('LoanAmount','required')\"> Loan Amount is required</span>\r\n            <span style=\"color:red\" *ngIf=\"loanApplication.IsDirty('LoanAmount')\" [hidden]=\"loanApplication.IsValidCheck('LoanAmount','positivenum')\"> Loan Amount Should Not Be Negative</span>\r\n        </div>\r\n        <div class=\"form-group\">\r\n            <label for=\"exampleInputLoanPeriod\">Loan Period (in Years):<b style=\"color: red;\">*</b></label>\r\n            <input type=\"number\" class=\"form-control\" id=\"exampleInputLoanPeriod\" placeholder=\"Loan Period\" [(ngModel)]=\"loanApplication.LoanPeriod\" formControlName=\"LoanPeriod\">\r\n            <span style=\"color:red\" *ngIf=\"loanApplication.IsDirty('LoanPeriod')\" [hidden]=\"loanApplication.IsValidCheck('LoanPeriod','required')\"> Loan Period is required</span>\r\n            <span style=\"color:red\" *ngIf=\"loanApplication.IsDirty('LoanPeriod')\" [hidden]=\"loanApplication.IsValidCheck('LoanPeriod','positivenum')\"> Loan Period Should Not Be Negative</span>\r\n        </div>\r\n        <button type=\"submit\" class=\"btn btn-primary\" (click)=\"SubmitApplicationForm()\">Submit</button>\r\n    </form>\r\n</div>");
 
 /***/ }),
 
@@ -22,7 +22,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<h1 id=\"tableLabel\">Loan List</h1>\r\n<div>\r\n  <table class='table' aria-labelledby=\"tableLabel\">\r\n    <thead>\r\n      <tr>\r\n        <th>S.No.</th>\r\n        <th>Customer Name</th>\r\n        <th>Customer Address</th>\r\n        <th>Email</th>\r\n        <th>Loan Amount</th>\r\n        <th>Loan Period</th>\r\n        <th>Application Date</th>\r\n        <th>Loan Status</th>\r\n        <th *ngIf=\"userRole == admin_enum\">Action</th>\r\n      </tr>\r\n    </thead>\r\n    <tbody>\r\n      <tr *ngFor=\"let loan of loansApplied;let i= index\">\r\n        <td>{{i+1}}</td>\r\n        <td>{{loan.CustomerName}}</td>\r\n        <td>{{loan.Address}}</td>\r\n        <td>{{loan.Email}}</td>\r\n        <td>{{loan.LoanAmount}}</td>\r\n        <td>{{loan.LoanPeriod}}</td>\r\n        <td>{{loan.ApplicationDate | date:'yyyy-MM-dd'}}</td>\r\n        <td>{{loan.Status}}</td>\r\n        <td *ngIf=\"userRole == admin_enum\">\r\n          <button class=\"btn-primary\" (click)=\"Approve(loan)\" [disabled]=\"loan.IsApprovedDisabled\">Approve</button><br>\r\n          <button class=\"btn-danger\" (click)=\"Reject(loan)\" [disabled]=\"loan.IsRejectedDisabled\">Reject</button>\r\n      </tr>\r\n    </tbody>\r\n  </table>\r\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<h1 id=\"tableLabel\">Loan List</h1>\r\n<br>\r\n<button  class=\"btn-danger\"  *ngIf=\"loanService.RoleName == client_enum\" (click)=\"GoBack()\">Go Back To Home</button>\r\n<br>\r\n<div>\r\n  <table class='table' aria-labelledby=\"tableLabel\">\r\n    <thead>\r\n      <tr>\r\n        <th>S.No.</th>\r\n        <th>Customer Name</th>\r\n        <th>Customer Address</th>\r\n        <th>Email</th>\r\n        <th>Loan Amount</th>\r\n        <th>Loan Period</th>\r\n        <th>Application Date</th>\r\n        <th>Loan Status</th>\r\n        <th *ngIf=\"userRole == admin_enum\">Action</th>\r\n      </tr>\r\n    </thead>\r\n    <tbody>\r\n      <tr *ngFor=\"let loan of loansApplied;let i= index\">\r\n        <td>{{i+1}}</td>\r\n        <td>{{loan.CustomerName}}</td>\r\n        <td>{{loan.Address}}</td>\r\n        <td>{{loan.Email}}</td>\r\n        <td>{{loan.LoanAmount}}</td>\r\n        <td>{{loan.LoanPeriod}}</td>\r\n        <td>{{loan.ApplicationDate | date:'yyyy-MM-dd'}}</td>\r\n        <td>{{loan.Status}}</td>\r\n        <td *ngIf=\"userRole == admin_enum\" style=\"width: 250px;\">\r\n          <button class=\"btn-primary\" (click)=\"Approve(loan)\" [disabled]=\"loan.IsApprovedDisabled\">Approve</button>&nbsp;\r\n          <button class=\"btn-danger\" (click)=\"Reject(loan)\">Reject</button>\r\n      </tr>\r\n    </tbody>\r\n  </table>\r\n</div>");
 
 /***/ }),
 
@@ -35,7 +35,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<body>\r\n  <!-- <app-nav-menu></app-nav-menu> -->\r\n  <div class=\"container\">\r\n    <router-outlet></router-outlet>\r\n  </div>\r\n</body>\r\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<body>\r\n  <div class=\"container\">\r\n    <router-outlet></router-outlet>\r\n  </div>\r\n</body>\r\n");
 
 /***/ }),
 
@@ -48,7 +48,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div *ngIf=\"loanService.RoleName == client_enum\">\r\n  <div class=\"Container\">\r\n    <br>\r\n    <h2>Welcome &nbsp;{{loanService.UserName}}</h2>\r\n    <br>\r\n    <app-loan-application [userRole]=\"loanService.RoleName\"></app-loan-application>\r\n  </div>\r\n</div>\r\n<div *ngIf=\"loanService.RoleName == admin_enum\">\r\n  <div class=\"Container\">\r\n    <br>\r\n    <h2>Welcome &nbsp;{{loanService.UserName}}</h2>\r\n    <br>\r\n    <app-loan-applied-list [userRole]=\"loanService.RoleName\"></app-loan-applied-list>\r\n  </div>\r\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div *ngIf=\"loanService.UserName\">\r\n  <div class=\"Container\">\r\n    <br>\r\n    <div class=\"col-md-12\">\r\n      <div class=\"row\">\r\n        <div class=\"col-md-6\">\r\n          <h2>Welcome &nbsp;{{loanService.UserName}}</h2>\r\n        </div>\r\n        <div class=\"col-md-6\" style=\"margin-left: 1100px;\">\r\n          <button type=\"submit\" class=\"btn btn-primary\" (click)=\"logOut()\">LogOut</button>\r\n          <br>\r\n        </div>\r\n      </div>\r\n    </div>\r\n    <app-loan-application *ngIf=\"loanService.RoleName == client_enum\" [userRole]=\"loanService.RoleName\"></app-loan-application>\r\n    <app-loan-applied-list *ngIf=\"loanService.RoleName == admin_enum\" [userRole]=\"loanService.RoleName\"></app-loan-applied-list>\r\n  </div>\r\n</div>");
 
 /***/ }),
 
@@ -61,7 +61,20 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<br />\r\n<div>Login</div>\r\n<br />\r\n<div class=\"Container\">\r\n    <!-- Reactive Form -->\r\n    <form [formGroup]=\"user.userValidator\">\r\n        <div>\r\n            UserName:<b class=\"color-red\">*</b> <input type=\"text\" [(ngModel)]=\"user.UserName\" formControlName=\"UserName\">\r\n            <span style=\"color:red\" *ngIf=\"user.IsDirty('UserName')\" [hidden]=\"user.IsValidCheck('UserName','required')\"> UserName is required</span>\r\n        </div>\r\n        <br>\r\n        <div>\r\n            Password:<b class=\"color-red\">*</b> <input type=\"password\" [(ngModel)]=\"user.Password\" formControlName=\"Password\">\r\n            <span style=\"color:red\" *ngIf=\"user.IsDirty('Password')\" [hidden]=\"user.IsValidCheck('Password','required')\"> Password is required</span>\r\n        </div>\r\n        <br>\r\n        <input type=\"button\" class=\"btn btn-primary\" value=\"Submit\" (click)=\"PostLoginForm()\">\r\n    </form>\r\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<br />\r\n<div><b>Login</b></div>\r\n<br />\r\n<div class=\"Container\">\r\n    <!-- Reactive Form -->\r\n    <form [formGroup]=\"user.userValidator\">\r\n        <div>\r\n            UserName:<b style=\"color: red;\">*</b>&nbsp;&nbsp; <input type=\"text\" [(ngModel)]=\"user.UserName\" formControlName=\"UserName\" placeholder=\"UserName\">\r\n            <span style=\"color:red\" *ngIf=\"user.IsDirty('UserName')\" [hidden]=\"user.IsValidCheck('UserName','required')\"> UserName is required</span>\r\n        </div>\r\n        <br>\r\n        <div>\r\n            Password:<b style=\"color: red;\">*</b>&nbsp;&nbsp; <input type=\"password\" [(ngModel)]=\"user.Password\" formControlName=\"Password\" placeholder=\"Password\"> &nbsp;&nbsp;\r\n            <span style=\"color:red\" *ngIf=\"user.IsDirty('Password')\" [hidden]=\"user.IsValidCheck('Password','required')\"> Password is required</span>\r\n        </div>\r\n        <br>\r\n        <input type=\"button\" class=\"btn btn-primary\" value=\"Submit\" (click)=\"PostLoginForm()\">\r\n        <br><br>\r\n        If Not Registered First Do Register &nbsp;<a style=\"text-decoration: underline;\" href=\"/Registration\"><b>Register</b></a>\r\n    </form>\r\n</div>");
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/registration/user-registration.component.html":
+/*!*****************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/registration/user-registration.component.html ***!
+  \*****************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<br><br><br>\r\n<h1><b>User Registration</b></h1><br><br>\r\n<form [formGroup]=\"registration.userValidator\">\r\n    <div>\r\n        <label for=\"exampleInputName\">UserName:<b style=\"color: red;\">*</b></label>&nbsp;\r\n        <input type=\"text\" id=\"user-name\" placeholder=\"UserName\" [(ngModel)]=\"registration.UserName\" formControlName=\"UserName\">\r\n        <span style=\"color:red\" *ngIf=\"registration.IsDirty('UserName')\" [hidden]=\"registration.IsValidCheck('UserName','required')\"> UserName is required</span>\r\n    </div><br>\r\n    <div>\r\n        <label for=\"exampleInputPassword\">Password:<b style=\"color: red;\">*</b></label>&nbsp;\r\n        <input type=\"password\" id=\"password\" placeholder=\"Password\" [(ngModel)]=\"registration.Password\" formControlName=\"Password\">\r\n        <span style=\"color:red\" *ngIf=\"registration.IsDirty('Password')\" [hidden]=\"registration.IsValidCheck('Password','required')\"> Password is required</span>\r\n    </div><br>\r\n    <div>\r\n        <label for=\"exampleInputConfirmPassword\">Confirm Password:<b style=\"color: red;\">*</b></label>&nbsp;\r\n        <input type=\"password\" id=\"confirmpassword\" placeholder=\"Password\" [(ngModel)]=\"SecondPassword\" required [ngModelOptions]=\"{standalone:true}\" (ngModelChange)=\"OnEnterSecondPassword()\">\r\n        <span style=\"color:red\" *ngIf=\"isInValid\"> Password Not Matched</span>\r\n    </div><br>\r\n    <div>\r\n        <label for=\"exampleInputLoanPeriod\">Name:</label>&nbsp;\r\n        <input type=\"text\" id=\"name\" placeholder=\"Name\" [(ngModel)]=\"registration.Name\" [ngModelOptions]=\"{standalone:true}\">\r\n    </div><br>\r\n    <div>\r\n        <label for=\"exampleInputContact\">Email:<b style=\"color: red;\">*</b></label>&nbsp;\r\n        <input type=\"email\" id=\"email\" placeholder=\"Email\" [(ngModel)]=\"registration.Email\" formControlName=\"Email\" required>\r\n        <span style=\"color:red\" *ngIf=\"registration.IsDirty('Email')\" [hidden]=\"registration.IsValidCheck('Email','pattern')\">Email is not proper</span>\r\n    </div><br>\r\n    <div>\r\n        <label for=\"exampleInputLoanAmount\">Contact:</label>&nbsp;\r\n        <input type=\"text\" id=\"contact\" placeholder=\"Contact\" maxLength=\"10\" [(ngModel)]=\"registration.Contact\" [ngModelOptions]=\"{standalone:true}\">\r\n    </div><br>\r\n    <div>\r\n        <label for=\"exampleInputLoanPeriod\">Address:</label>&nbsp;\r\n        <input type=\"text\" id=\"address\" placeholder=\"Address\" [(ngModel)]=\"registration.Address\" [ngModelOptions]=\"{standalone:true}\">\r\n    </div><br>\r\n    <input type=\"button\" class=\"btn btn-primary\" value=\"Submit\" (click)=\"SubmitRegistration()\">\r\n    &nbsp;&nbsp;&nbsp;<a href=\"/\"><b>Go Back To Login</b></a>\r\n</form>");
 
 /***/ }),
 
@@ -123,6 +136,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _Model_LoanApplication_model__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../Model/LoanApplication.model */ "./src/app/Model/LoanApplication.model.ts");
 /* harmony import */ var _Services_loan_bl_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Services/loan.bl.service */ "./src/app/Services/loan.bl.service.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -138,12 +152,13 @@ var __importDefault = (undefined && undefined.__importDefault) || function (mod)
 
 
 
+
 let LoanApplicationFormComponent = class LoanApplicationFormComponent {
-    constructor(loanBlService) {
+    constructor(loanBlService, router) {
         this.loanBlService = loanBlService;
+        this.router = router;
         this.loanApplication = new _Model_LoanApplication_model__WEBPACK_IMPORTED_MODULE_1__["LoanApplication"]();
         this.userRole = null;
-        this.showAppliedLoansStatus = false;
         try {
             this.user = localStorage.getItem('UserId'); // To get the UserId of current logged-In User
             this.userId = parseInt(this.user);
@@ -159,7 +174,7 @@ let LoanApplicationFormComponent = class LoanApplicationFormComponent {
             this.loanApplication.LoanValidator.controls[i].updateValueAndValidity();
         }
         if (this.loanApplication.IsValidCheck(undefined, undefined)) {
-            this.loanApplication.CreatedBy = this.userId;
+            this.loanApplication.UserId = this.userId;
             this.loanBlService.PostLoan(this.loanApplication)
                 .subscribe(res => {
                 if (res.Status == 'OK') {
@@ -175,11 +190,12 @@ let LoanApplicationFormComponent = class LoanApplicationFormComponent {
     }
     //event handling
     OnClickAppliedLoanDetail() {
-        this.showAppliedLoansStatus = true;
+        this.router.navigate(["/AppliedLoans"]);
     }
 };
 LoanApplicationFormComponent.ctorParameters = () => [
-    { type: _Services_loan_bl_service__WEBPACK_IMPORTED_MODULE_2__["LoanBLService"] }
+    { type: _Services_loan_bl_service__WEBPACK_IMPORTED_MODULE_2__["LoanBLService"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"] }
 ];
 __decorate([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])("userRole"),
@@ -190,7 +206,7 @@ LoanApplicationFormComponent = __decorate([
         selector: 'app-loan-application',
         template: __importDefault(__webpack_require__(/*! raw-loader!./loan-application-form.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/LoanApplicationForm/loan-application-form.component.html")).default,
     }),
-    __metadata("design:paramtypes", [_Services_loan_bl_service__WEBPACK_IMPORTED_MODULE_2__["LoanBLService"]])
+    __metadata("design:paramtypes", [_Services_loan_bl_service__WEBPACK_IMPORTED_MODULE_2__["LoanBLService"], _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"]])
 ], LoanApplicationFormComponent);
 
 
@@ -211,6 +227,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Services_loan_bl_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../Services/loan.bl.service */ "./src/app/Services/loan.bl.service.ts");
 /* harmony import */ var _Model_LoanApplication_model__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Model/LoanApplication.model */ "./src/app/Model/LoanApplication.model.ts");
 /* harmony import */ var _ENUM_shared_enum__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../ENUM/shared_enum */ "./src/app/ENUM/shared_enum.ts");
+/* harmony import */ var _Services_loan_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../Services/loan-service */ "./src/app/Services/loan-service.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -227,27 +245,51 @@ var __importDefault = (undefined && undefined.__importDefault) || function (mod)
 
 
 
+
+
 let LoanAppliedListComponent = class LoanAppliedListComponent {
-    constructor(loanBLService) {
+    constructor(loanBLService, loanService, router) {
         this.loanBLService = loanBLService;
+        this.loanService = loanService;
+        this.router = router;
         this.loansApplied = new Array();
         this.loanApplication = new _Model_LoanApplication_model__WEBPACK_IMPORTED_MODULE_2__["LoanApplication"]();
         //It receives data from its parent i.e. home component
         this.userRole = null;
         this.admin_enum = _ENUM_shared_enum__WEBPACK_IMPORTED_MODULE_3__["ENUM_Role"].Admin;
+        this.client_enum = _ENUM_shared_enum__WEBPACK_IMPORTED_MODULE_3__["ENUM_Role"].Client;
         this.user = null;
         this.userId = null;
         this.isApproveButtonDisable = false;
         this.isRejectButtonDisable = false;
-        this.getAllAppliedLoans();
-        try {
-            this.user = localStorage.getItem('UserId'); // To get the UserId of current logged-In User
-            this.userId = parseInt(this.user);
-        }
-        catch (e) {
-            alert(e.toString());
+        this.LoanApplicationId = null;
+    }
+    ngOnInit() {
+        if (this.loanService.RoleName == _ENUM_shared_enum__WEBPACK_IMPORTED_MODULE_3__["ENUM_Role"].Client)
+            try {
+                this.user = localStorage.getItem('UserId'); // To get the UserId of current logged-In User
+                this.userId = parseInt(this.user);
+                if (this.userId > 0)
+                    this.getLoanAppliedByUser(this.userId);
+            }
+            catch (e) {
+                alert(e.toString());
+            }
+        else {
+            try {
+                this.user = localStorage.getItem('UserId'); // To get the UserId of current logged-In User
+                this.userId = parseInt(this.user);
+                this.getAllAppliedLoans();
+            }
+            catch (e) {
+                alert(e.toString());
+            }
         }
     }
+    // ngOnDestroy() {
+    //   this.loanService.RoleName = null;
+    //   this.loanService.UserName = null;
+    // }
     getAllAppliedLoans() {
         this.loanBLService.getAllLoansApplications().subscribe((res) => {
             if (res.Status === 'OK') {
@@ -264,11 +306,20 @@ let LoanAppliedListComponent = class LoanAppliedListComponent {
             }
         });
     }
+    getLoanAppliedByUser(userId) {
+        this.loanBLService.getLoanApplicationByUserId(userId).subscribe((res) => {
+            if (res.Status === 'OK') {
+                this.loansApplied = res.Results;
+                this.loansApplied = this.loansApplied.slice();
+            }
+        });
+    }
     //Event handling
     Reject($event) {
         this.loanBLService.rejectApplication(this.userId, $event.LoanApplicationId).subscribe((res) => {
             if (res.Status === 'OK') {
                 this.isRejectButtonDisable = true;
+                this.LoanApplicationId = $event.LoanApplicationId;
                 this.OnStatusChanged(res);
                 alert("Successfully Rejected Loan");
             }
@@ -278,6 +329,7 @@ let LoanAppliedListComponent = class LoanAppliedListComponent {
         this.loanBLService.approveApplication(this.userId, $event.LoanApplicationId).subscribe((res) => {
             if (res.Status === 'OK') {
                 this.isApproveButtonDisable = true;
+                this.LoanApplicationId = $event.LoanApplicationId;
                 this.OnStatusChanged(res);
                 alert("Successfully Approved Loan");
             }
@@ -290,28 +342,33 @@ let LoanAppliedListComponent = class LoanAppliedListComponent {
         if (res.Status === 'OK') {
             this.loanApplication = res.Results;
             this.loansApplied.forEach((loanApplication) => {
-                if (loanApplication.LoanApplicationId === this.loanApplication.LoanApplicationId)
+                if (loanApplication.LoanApplicationId == this.LoanApplicationId) {
                     loanApplication.Status = this.loanApplication.Status;
-                if (this.isApproveButtonDisable && this.loanApplication.Status == "Approved") {
-                    loanApplication.IsApprovedDisabled = true;
-                    loanApplication.IsRejectedDisabled = true;
-                }
-                if (this.isRejectButtonDisable && this.loanApplication.Status == "Rejected")
-                    loanApplication.IsRejectedDisabled = true;
-                if (this.loanApplication.Status == "InProgress") {
-                    loanApplication.IsApprovedDisabled = false;
-                    loanApplication.IsRejectedDisabled = false;
+                    if (this.isApproveButtonDisable && this.loanApplication.Status == "Approved") {
+                        loanApplication.IsApprovedDisabled = true;
+                    }
+                    if (this.isRejectButtonDisable && this.loanApplication.Status == "Rejected")
+                        loanApplication.IsRejectedDisabled = true;
+                    if (this.loanApplication.Status == "InProgress") {
+                        loanApplication.IsApprovedDisabled = false;
+                        loanApplication.IsRejectedDisabled = false;
+                    }
                 }
             });
             this.loansApplied = this.loansApplied.slice();
         }
     }
+    GoBack() {
+        this.router.navigate(["/Home"]);
+    }
 };
 LoanAppliedListComponent.ctorParameters = () => [
-    { type: _Services_loan_bl_service__WEBPACK_IMPORTED_MODULE_1__["LoanBLService"] }
+    { type: _Services_loan_bl_service__WEBPACK_IMPORTED_MODULE_1__["LoanBLService"] },
+    { type: _Services_loan_service__WEBPACK_IMPORTED_MODULE_4__["LoanService"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_5__["Router"] }
 ];
 __decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])("userRole"),
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
     __metadata("design:type", String)
 ], LoanAppliedListComponent.prototype, "userRole", void 0);
 LoanAppliedListComponent = __decorate([
@@ -319,7 +376,7 @@ LoanAppliedListComponent = __decorate([
         selector: 'app-loan-applied-list',
         template: __importDefault(__webpack_require__(/*! raw-loader!./Loan-Applied-List.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/LoanAppliedList/Loan-Applied-List.component.html")).default
     }),
-    __metadata("design:paramtypes", [_Services_loan_bl_service__WEBPACK_IMPORTED_MODULE_1__["LoanBLService"]])
+    __metadata("design:paramtypes", [_Services_loan_bl_service__WEBPACK_IMPORTED_MODULE_1__["LoanBLService"], _Services_loan_service__WEBPACK_IMPORTED_MODULE_4__["LoanService"], _angular_router__WEBPACK_IMPORTED_MODULE_5__["Router"]])
 ], LoanAppliedListComponent);
 
 
@@ -351,11 +408,11 @@ class LoanApplication {
         this.Email = "";
         this.Contact = null;
         this.Status = "";
-        this.CreatedBy = null;
         this.CreatedOn = null;
         this.ModifiedBy = null;
         this.ModifiedOn = null;
         this.IsActive = true;
+        this.UserId = null;
         this.Address = null;
         this.IsApprovedDisabled = false;
         this.IsRejectedDisabled = false;
@@ -365,7 +422,7 @@ class LoanApplication {
             'CustomerName': ['', _angular_forms__WEBPACK_IMPORTED_MODULE_0__["Validators"].compose([_angular_forms__WEBPACK_IMPORTED_MODULE_0__["Validators"].required])],
             'LoanAmount': ['', _angular_forms__WEBPACK_IMPORTED_MODULE_0__["Validators"].compose([_angular_forms__WEBPACK_IMPORTED_MODULE_0__["Validators"].required, this.positiveNumberValdiator])],
             'LoanPeriod': ['', _angular_forms__WEBPACK_IMPORTED_MODULE_0__["Validators"].compose([_angular_forms__WEBPACK_IMPORTED_MODULE_0__["Validators"].required, this.positiveNumberValdiator])],
-            'Email': ['', _angular_forms__WEBPACK_IMPORTED_MODULE_0__["Validators"].compose([_angular_forms__WEBPACK_IMPORTED_MODULE_0__["Validators"].required])],
+            'Email': ['', _angular_forms__WEBPACK_IMPORTED_MODULE_0__["Validators"].compose([_angular_forms__WEBPACK_IMPORTED_MODULE_0__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_0__["Validators"].pattern('^[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})$')])],
             'Contact': ['', _angular_forms__WEBPACK_IMPORTED_MODULE_0__["Validators"].compose([_angular_forms__WEBPACK_IMPORTED_MODULE_0__["Validators"].required])]
         });
     }
@@ -390,7 +447,7 @@ class LoanApplication {
     }
     positiveNumberValdiator(control) {
         if (control) {
-            if (control.value < 0)
+            if (control.value <= 0)
                 return { 'positivenum': true };
         }
     }
@@ -452,20 +509,21 @@ class User_Credential {
         this.UserId = 0;
         this.UserName = null;
         this.Password = null;
-        this.Email = null;
+        this.Email = "";
         this.CreatedBy = null;
         this.CreatedOn = null;
         this.ModifiedOn = null;
         this.ModifiedBy = null;
         this.IsActive = true;
-        this.Contact = null;
-        this.Name = null;
-        this.Address = null;
+        this.Contact = "";
+        this.Name = "";
+        this.Address = "";
         this.userValidator = null;
         var _formBuilder = new _angular_forms__WEBPACK_IMPORTED_MODULE_0__["FormBuilder"]();
         this.userValidator = _formBuilder.group({
             'UserName': ['', _angular_forms__WEBPACK_IMPORTED_MODULE_0__["Validators"].compose([_angular_forms__WEBPACK_IMPORTED_MODULE_0__["Validators"].required])],
             'Password': ['', _angular_forms__WEBPACK_IMPORTED_MODULE_0__["Validators"].compose([_angular_forms__WEBPACK_IMPORTED_MODULE_0__["Validators"].required])],
+            'Email': ['', _angular_forms__WEBPACK_IMPORTED_MODULE_0__["Validators"].compose([_angular_forms__WEBPACK_IMPORTED_MODULE_0__["Validators"].pattern('^[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})$')])]
         });
     }
     IsDirty(fieldName) {
@@ -600,6 +658,21 @@ let LoanBLService = class LoanBLService {
             return responseData;
         }));
     }
+    getLoanApplicationByUserId(UserId) {
+        return this.loanDlService.getLoanApplicationByUserId(UserId).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["map"])((responseData) => {
+            return responseData;
+        }));
+    }
+    postUserRegistration(user) {
+        var userDetail = lodash__WEBPACK_IMPORTED_MODULE_3__["omit"](user, ['userValidator']);
+        return this.loanDlService.postUserRegistrationDetail(userDetail)
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["map"])(res => { return res; }));
+    }
+    verifyUserCredential(user) {
+        var userDetail = lodash__WEBPACK_IMPORTED_MODULE_3__["omit"](user, ['userValidator']);
+        return this.loanDlService.verifyUserCredential(userDetail)
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["map"])(res => { return res; }));
+    }
 };
 LoanBLService.ctorParameters = () => [
     { type: _loan_dl_service__WEBPACK_IMPORTED_MODULE_1__["LoanDlService"] }
@@ -674,6 +747,25 @@ let LoanDlService = class LoanDlService {
     rejectApplication(UserId, LoanApplicationId) {
         try {
             return this.http.put(`${this.baseUrl}/RejectLoanApplication?UserId=${UserId}&LoanApplicationId=${LoanApplicationId}`, this.optionJson);
+        }
+        catch (ex) {
+            throw ex;
+        }
+    }
+    getLoanApplicationByUserId(userId) {
+        return this.http.get(`${this.baseUrl}/LoanApplicationsByUserId?UserId=${userId}`);
+    }
+    postUserRegistrationDetail(user) {
+        try {
+            return this.http.post(`${this.baseUrl}/UserRegistration`, user);
+        }
+        catch (ex) {
+            throw ex;
+        }
+    }
+    verifyUserCredential(user) {
+        try {
+            return this.http.post(`${this.baseUrl}/UserAuthentication`, user);
         }
         catch (ex) {
             throw ex;
@@ -757,6 +849,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _login_login_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./login/login.component */ "./src/app/login/login.component.ts");
 /* harmony import */ var _Services_loan_service__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./Services/loan-service */ "./src/app/Services/loan-service.ts");
 /* harmony import */ var _LoanApplicationForm_loan_application_form_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./LoanApplicationForm/loan-application-form.component */ "./src/app/LoanApplicationForm/loan-application-form.component.ts");
+/* harmony import */ var _registration_user_registration_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./registration/user-registration.component */ "./src/app/registration/user-registration.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -766,6 +859,7 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 var __importDefault = (undefined && undefined.__importDefault) || function (mod) {
   return (mod && mod.__esModule) ? mod : { "default": mod };
 };
+
 
 
 
@@ -793,7 +887,8 @@ AppModule = __decorate([
             _home_home_component__WEBPACK_IMPORTED_MODULE_6__["HomeComponent"],
             _LoanAppliedList_Loan_Applied_list_component__WEBPACK_IMPORTED_MODULE_7__["LoanAppliedListComponent"],
             _login_login_component__WEBPACK_IMPORTED_MODULE_10__["loginComponent"],
-            _LoanApplicationForm_loan_application_form_component__WEBPACK_IMPORTED_MODULE_12__["LoanApplicationFormComponent"]
+            _LoanApplicationForm_loan_application_form_component__WEBPACK_IMPORTED_MODULE_12__["LoanApplicationFormComponent"],
+            _registration_user_registration_component__WEBPACK_IMPORTED_MODULE_13__["UserRegistrationComponent"]
         ],
         imports: [
             _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"].withServerTransition({ appId: 'ng-cli-universal' }),
@@ -803,6 +898,8 @@ AppModule = __decorate([
             _angular_router__WEBPACK_IMPORTED_MODULE_4__["RouterModule"].forRoot([
                 { path: '', component: _login_login_component__WEBPACK_IMPORTED_MODULE_10__["loginComponent"], pathMatch: 'full' },
                 { path: 'Home', component: _home_home_component__WEBPACK_IMPORTED_MODULE_6__["HomeComponent"] },
+                { path: 'AppliedLoans', component: _LoanAppliedList_Loan_Applied_list_component__WEBPACK_IMPORTED_MODULE_7__["LoanAppliedListComponent"] },
+                { path: 'Registration', component: _registration_user_registration_component__WEBPACK_IMPORTED_MODULE_13__["UserRegistrationComponent"] }
             ])
         ],
         bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_5__["AppComponent"]]
@@ -829,6 +926,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Model_Role_model__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../Model/Role.model */ "./src/app/Model/Role.model.ts");
 /* harmony import */ var _ENUM_shared_enum__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../ENUM/shared_enum */ "./src/app/ENUM/shared_enum.ts");
 /* harmony import */ var _Model_User_model__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../Model/User.model */ "./src/app/Model/User.model.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -847,10 +945,12 @@ var __importDefault = (undefined && undefined.__importDefault) || function (mod)
 
 
 
+
 let HomeComponent = class HomeComponent {
-    constructor(loanBlService, loanService) {
+    constructor(loanBlService, loanService, router) {
         this.loanBlService = loanBlService;
         this.loanService = loanService;
+        this.router = router;
         this.client_enum = _ENUM_shared_enum__WEBPACK_IMPORTED_MODULE_4__["ENUM_Role"].Client;
         this.admin_enum = _ENUM_shared_enum__WEBPACK_IMPORTED_MODULE_4__["ENUM_Role"].Admin;
         this.user = new _Model_User_model__WEBPACK_IMPORTED_MODULE_5__["User_Credential"]();
@@ -860,21 +960,23 @@ let HomeComponent = class HomeComponent {
         this.user.UserName = this.loanService.UserName;
         this.role.RoleName = this.loanService.RoleName;
     }
-    ngOnDestroy() {
+    logOut() {
+        this.router.navigate(["/"]);
         this.loanService.RoleName = null;
         this.loanService.UserName = null;
     }
 };
 HomeComponent.ctorParameters = () => [
     { type: _Services_loan_bl_service__WEBPACK_IMPORTED_MODULE_1__["LoanBLService"] },
-    { type: _Services_loan_service__WEBPACK_IMPORTED_MODULE_2__["LoanService"] }
+    { type: _Services_loan_service__WEBPACK_IMPORTED_MODULE_2__["LoanService"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_6__["Router"] }
 ];
 HomeComponent = __decorate([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
         selector: 'app-home',
         template: __importDefault(__webpack_require__(/*! raw-loader!./home.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/home/home.component.html")).default,
     }),
-    __metadata("design:paramtypes", [_Services_loan_bl_service__WEBPACK_IMPORTED_MODULE_1__["LoanBLService"], _Services_loan_service__WEBPACK_IMPORTED_MODULE_2__["LoanService"]])
+    __metadata("design:paramtypes", [_Services_loan_bl_service__WEBPACK_IMPORTED_MODULE_1__["LoanBLService"], _Services_loan_service__WEBPACK_IMPORTED_MODULE_2__["LoanService"], _angular_router__WEBPACK_IMPORTED_MODULE_6__["Router"]])
 ], HomeComponent);
 
 
@@ -920,19 +1022,9 @@ let loginComponent = class loginComponent {
         this.loanBlService = loanBlService;
         this.router = router;
         this.loanService = loanService;
-        this.users = new Array();
         this.user = new _Model_User_model__WEBPACK_IMPORTED_MODULE_2__["User_Credential"]();
         this.userCredential = new _Model_User_model__WEBPACK_IMPORTED_MODULE_2__["User_Credential"]();
         this.role = new _Model_Role_model__WEBPACK_IMPORTED_MODULE_4__["Role"]();
-        this.getUsersList();
-    }
-    getUsersList() {
-        this.loanBlService.getUsersList().subscribe(res => {
-            if (res.Status == 'OK') {
-                this.users = res.Results;
-                // console.log(this.loanService.LoanServiceNotification());
-            }
-        });
     }
     PostLoginForm() {
         for (var i in this.user.userValidator.controls) {
@@ -953,23 +1045,28 @@ let loginComponent = class loginComponent {
             this.displayErrorMessage("Cannot Enter White Space");
             return;
         }
-        if (!this.users) {
-            this.displayErrorMessage("Invalid Credentials");
-            return;
-        }
-        const userCredential = this.users.find((e) => e.UserName === trimmedUserName && e.Password === trimmedPassword);
-        if (userCredential) {
-            this.loanBlService.getUserRoleByUserId(userCredential.UserId).subscribe((res) => {
+        if (this.user) {
+            this.loanBlService.verifyUserCredential(this.user).subscribe((res) => {
                 if (res.Status === 'OK') {
-                    this.role = res.Results;
-                    this.SetUserIdToLocalStorage(userCredential);
-                    this.UserRoleHandler(this.role);
+                    this.user = res.Results;
+                    this.SetUserIdToLocalStorage(this.user);
+                    if (this.user.UserId > 0) {
+                        this.loanBlService.getUserRoleByUserId(this.user.UserId).subscribe((res) => {
+                            if (res.Status === 'OK') {
+                                this.role = res.Results;
+                                if (this.role)
+                                    this.UserRoleHandler(this.role);
+                            }
+                        });
+                    }
+                    this.user = null;
                 }
+                else
+                    this.displayErrorMessage("Invalid Credentials");
             });
         }
-        else {
+        else
             this.displayErrorMessage("Invalid Credentials");
-        }
     }
     // Helper function to display error messages
     displayErrorMessage(message) {
@@ -978,12 +1075,7 @@ let loginComponent = class loginComponent {
     UserRoleHandler(role) {
         this.loanService.RoleName = role.RoleName;
         this.loanService.UserName = role.UserName;
-        if (role.RoleName == "Admin") {
-            this.router.navigate(["/Home"]);
-        }
-        if (role.RoleName == "Client") {
-            this.router.navigate(["/Home"]);
-        }
+        this.router.navigate(["/Home"]);
     }
     //     To get the UserId of current LoggedIn User without each time accessing the userid So this method 
     //     is called each time when user is loggedin and can be accessed from any component
@@ -1003,6 +1095,82 @@ loginComponent = __decorate([
     }),
     __metadata("design:paramtypes", [_Services_loan_bl_service__WEBPACK_IMPORTED_MODULE_1__["LoanBLService"], _angular_router__WEBPACK_IMPORTED_MODULE_5__["Router"], _Services_loan_service__WEBPACK_IMPORTED_MODULE_3__["LoanService"]])
 ], loginComponent);
+
+
+
+/***/ }),
+
+/***/ "./src/app/registration/user-registration.component.ts":
+/*!*************************************************************!*\
+  !*** ./src/app/registration/user-registration.component.ts ***!
+  \*************************************************************/
+/*! exports provided: UserRegistrationComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UserRegistrationComponent", function() { return UserRegistrationComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _Model_User_model__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../Model/User.model */ "./src/app/Model/User.model.ts");
+/* harmony import */ var _Services_loan_bl_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Services/loan.bl.service */ "./src/app/Services/loan.bl.service.ts");
+/* harmony import */ var _Services_loan_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../Services/loan-service */ "./src/app/Services/loan-service.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __importDefault = (undefined && undefined.__importDefault) || function (mod) {
+  return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+
+
+
+
+
+let UserRegistrationComponent = class UserRegistrationComponent {
+    constructor(loanBLService, loanService, router) {
+        this.loanBLService = loanBLService;
+        this.loanService = loanService;
+        this.router = router;
+        this.registration = new _Model_User_model__WEBPACK_IMPORTED_MODULE_1__["User_Credential"]();
+        this.isInValid = false;
+        this.SecondPassword = null;
+    }
+    SubmitRegistration() {
+        if (!this.isInValid) {
+            this.loanBLService.postUserRegistration(this.registration).subscribe(res => {
+                if (res.Status === "OK") {
+                    alert("Successfully Registered");
+                    this.registration = new _Model_User_model__WEBPACK_IMPORTED_MODULE_1__["User_Credential"]();
+                    this.SecondPassword = null;
+                }
+            });
+        }
+    }
+    OnEnterSecondPassword() {
+        if (this.SecondPassword !== this.registration.Password)
+            this.isInValid = true;
+        else
+            this.isInValid = false;
+    }
+};
+UserRegistrationComponent.ctorParameters = () => [
+    { type: _Services_loan_bl_service__WEBPACK_IMPORTED_MODULE_2__["LoanBLService"] },
+    { type: _Services_loan_service__WEBPACK_IMPORTED_MODULE_3__["LoanService"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"] }
+];
+UserRegistrationComponent = __decorate([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+        selector: 'app-user-registration',
+        template: __importDefault(__webpack_require__(/*! raw-loader!./user-registration.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/registration/user-registration.component.html")).default
+    }),
+    __metadata("design:paramtypes", [_Services_loan_bl_service__WEBPACK_IMPORTED_MODULE_2__["LoanBLService"], _Services_loan_service__WEBPACK_IMPORTED_MODULE_3__["LoanService"], _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"]])
+], UserRegistrationComponent);
 
 
 

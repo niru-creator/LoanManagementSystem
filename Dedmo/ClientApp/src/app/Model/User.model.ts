@@ -4,15 +4,15 @@ export class User_Credential {
     public UserId: number = 0;
     public UserName: string = null;
     public Password: string = null;
-    public Email: string = null;
+    public Email: string = "";
     public CreatedBy: number = null;
     public CreatedOn: string = null;
     public ModifiedOn: string = null;
     public ModifiedBy: number = null;
     public IsActive: Boolean = true;
-    public Contact: string = null;
-    public Name: string = null;
-    public Address: string = null;
+    public Contact: string = "";
+    public Name: string = "";
+    public Address: string = "";
     public userValidator: FormGroup = null;
     //Reactive Form Validation
     constructor() {
@@ -20,6 +20,7 @@ export class User_Credential {
         this.userValidator = _formBuilder.group({
             'UserName': ['', Validators.compose([Validators.required])],
             'Password': ['', Validators.compose([Validators.required])],
+            'Email': ['', Validators.compose([Validators.pattern('^[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})$')])]
         });
     }
     public IsDirty(fieldName): boolean {

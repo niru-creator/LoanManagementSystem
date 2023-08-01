@@ -1,6 +1,7 @@
 import { Component, Input } from "@angular/core";
 import { LoanApplication } from "../Model/LoanApplication.model";
 import { LoanBLService } from "../Services/loan.bl.service";
+import { Router } from "@angular/router";
 
 @Component({
     selector: 'app-loan-application',
@@ -12,8 +13,7 @@ export class LoanApplicationFormComponent {
     userId: number;
     @Input("userRole")
     userRole: string = null;
-    showAppliedLoansStatus: boolean = false;
-    constructor(public loanBlService: LoanBLService) {
+    constructor(public loanBlService: LoanBLService, public router: Router) {
         try {
             this.user = localStorage.getItem('UserId'); // To get the UserId of current logged-In User
             this.userId = parseInt(this.user);
@@ -29,7 +29,7 @@ export class LoanApplicationFormComponent {
             this.loanApplication.LoanValidator.controls[i].updateValueAndValidity();
         }
         if (this.loanApplication.IsValidCheck(undefined, undefined)) {
-            this.loanApplication.CreatedBy = this.userId;
+            this.loanApplication.UserId = this.userId;
             this.loanBlService.PostLoan(this.loanApplication)
                 .subscribe(res => {
                     if (res.Status == 'OK') {
@@ -45,6 +45,6 @@ export class LoanApplicationFormComponent {
     }
     //event handling
     OnClickAppliedLoanDetail() {
-        this.showAppliedLoansStatus = true;
+        this.router.navigate(["/AppliedLoans"]);
     }
 }

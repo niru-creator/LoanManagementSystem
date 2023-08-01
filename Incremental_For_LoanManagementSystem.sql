@@ -45,39 +45,12 @@ INSERT INTO [dbo].[user_credential](
      VALUES
            (
            'Admin',
-           'admin',
+           '0EWlcbvqsb0=',
            'admin@gmail.com',
            'bibek',
            'DHN',
            '123345',
            NULL,
-           '7-18-2023',
-           NULL,
-           NULL,
-           1
-           )
-GO
-INSERT INTO [dbo].[user_credential](
-           [UserName]
-           ,[Password]
-           ,[Email]
-           ,[Name]
-           ,[Address]
-           ,[Contact]
-           ,[CreatedBy]
-           ,[CreatedOn]
-           ,[ModifiedBy]
-           ,[ModifiedOn]
-           ,[IsActive])
-     VALUES
-           (
-           'user123',
-           'user',
-           'user@gmail.com',
-           'niru',
-           'ktm',
-           '23435',
-            NULL,
            '7-18-2023',
            NULL,
            NULL,
@@ -186,27 +159,6 @@ INSERT INTO [dbo].[user_map_role]
            1
            )
 GO
-Declare @UserId int = (SELECT UserId from user_credential WHERE UserName = 'user123')
-Declare @RoleId int = (SELECT RoleId from user_role WHERE RoleName = 'Client') 
-INSERT INTO [dbo].[user_map_role]
-           ([UserId]
-           ,[RoleId]
-           ,[CreatedBy]
-           ,[CreatedOn]
-           ,[ModifiedBy]
-           ,[ModifiedOn]
-           ,[IsActive])
-     VALUES
-           (
-           @UserId,
-           @RoleId,
-           @UserId,
-           '7-18-2023',
-           NULL,
-           NULL,
-           1
-           )
-GO
 --When Client Apply for the Loan the data will be store in LoanApplication table
 CREATE TABLE LoanApplication(
 LoanApplicationId int IDENTITY(1,1) NOT NULL,
@@ -218,13 +170,13 @@ LoanPeriod int NOT NULL,
 Email Varchar(100) NOT NULL,
 Contact Varchar(50) NOT NULL,
 Status Varchar(150),          -- InProgress, Accepted , Rejected
-CreatedBy int NOT NULL,
 CreatedOn DateTime NOT NULL,
 ModifiedBy int NULL,
+UserId int NOT NULL,
 ModifiedOn DateTime NULL,
 IsActive bit NOT NULL
 CONSTRAINT DF_LoanApplication_IsActive DEFAULT 1,
-CONSTRAINT FK_LoanApplication_CreatedBy_user_credential FOREIGN KEY (CreatedBy) REFERENCES user_credential(UserId),
+CONSTRAINT FK_LoanApplication_UserId_user_credential FOREIGN KEY (UserId) REFERENCES user_credential(UserId),
 CONSTRAINT FK_LoanApplication_ModifiedBy_user_credential FOREIGN KEY (ModifiedBy) REFERENCES user_credential(UserId)
 )
 GO

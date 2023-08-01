@@ -11,6 +11,7 @@ import { LoanDlService } from './Services/loan.dl.service';
 import { loginComponent } from './login/login.component';
 import { LoanService } from './Services/loan-service';
 import { LoanApplicationFormComponent } from './LoanApplicationForm/loan-application-form.component';
+import { UserRegistrationComponent } from './registration/user-registration.component';
 
 @NgModule({
   providers: [
@@ -23,7 +24,8 @@ import { LoanApplicationFormComponent } from './LoanApplicationForm/loan-applica
     HomeComponent,
     LoanAppliedListComponent,
     loginComponent,
-    LoanApplicationFormComponent
+    LoanApplicationFormComponent,
+    UserRegistrationComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -33,6 +35,8 @@ import { LoanApplicationFormComponent } from './LoanApplicationForm/loan-applica
     RouterModule.forRoot([
       { path: '', component: loginComponent, pathMatch: 'full' },
       { path: 'Home', component: HomeComponent },
+      { path: 'AppliedLoans', component: LoanAppliedListComponent },
+      { path: 'Registration', component: UserRegistrationComponent }
     ])
   ],
   bootstrap: [AppComponent]

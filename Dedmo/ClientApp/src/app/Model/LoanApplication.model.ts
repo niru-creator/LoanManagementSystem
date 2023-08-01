@@ -9,11 +9,11 @@ export class LoanApplication {
     Email: string = "";
     Contact: string = null;
     Status: string = "";
-    CreatedBy: number = null;
     CreatedOn: string = null;
     ModifiedBy: number = null;
     ModifiedOn: string = null;
     IsActive: boolean = true;
+    UserId: number = null;
     Address: string = null;
     IsApprovedDisabled: boolean = false;
     IsRejectedDisabled: boolean = false;
@@ -24,7 +24,7 @@ export class LoanApplication {
             'CustomerName': ['', Validators.compose([Validators.required])],
             'LoanAmount': ['', Validators.compose([Validators.required, this.positiveNumberValdiator])],
             'LoanPeriod': ['', Validators.compose([Validators.required, this.positiveNumberValdiator])],
-            'Email': ['', Validators.compose([Validators.required])],
+            'Email': ['', Validators.compose([Validators.required, Validators.pattern('^[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})$')])],
             'Contact': ['', Validators.compose([Validators.required])]
         });
     }
@@ -43,7 +43,7 @@ export class LoanApplication {
     }
     positiveNumberValdiator(control: FormControl): { [key: string]: boolean } {
         if (control) {
-            if (control.value < 0)
+            if (control.value <= 0)
                 return { 'positivenum': true };
         }
     }

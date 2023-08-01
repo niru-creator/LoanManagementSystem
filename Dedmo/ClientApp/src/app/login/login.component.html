@@ -1,19 +1,21 @@
 <br />
-<div>Login</div>
+<div><b>Login</b></div>
 <br />
 <div class="Container">
     <!-- Reactive Form -->
     <form [formGroup]="user.userValidator">
         <div>
-            UserName:<b class="color-red">*</b> <input type="text" [(ngModel)]="user.UserName" formControlName="UserName">
+            UserName:<b style="color: red;">*</b>&nbsp;&nbsp; <input type="text" [(ngModel)]="user.UserName" formControlName="UserName" placeholder="UserName">
             <span style="color:red" *ngIf="user.IsDirty('UserName')" [hidden]="user.IsValidCheck('UserName','required')"> UserName is required</span>
         </div>
         <br>
         <div>
-            Password:<b class="color-red">*</b> <input type="password" [(ngModel)]="user.Password" formControlName="Password">
+            Password:<b style="color: red;">*</b>&nbsp;&nbsp; <input type="password" [(ngModel)]="user.Password" formControlName="Password" placeholder="Password"> &nbsp;&nbsp;
             <span style="color:red" *ngIf="user.IsDirty('Password')" [hidden]="user.IsValidCheck('Password','required')"> Password is required</span>
         </div>
         <br>
         <input type="button" class="btn btn-primary" value="Submit" (click)="PostLoginForm()">
+        <br><br>
+        If Not Registered First Do Register &nbsp;<a style="text-decoration: underline;" href="/Registration"><b>Register</b></a>
     </form>
 </div>
